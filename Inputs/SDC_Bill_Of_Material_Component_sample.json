@@ -10,7 +10,7 @@
 		"BillOfMaterialVersion": "",
 		"EngineeringChangeDocument": "",
 		"Material": "",
-		"Plant": "1010",
+		"Plant": "0001",
 		"BillOfMaterialHeaderUUID": "",
 		"BillOfMaterialVariantUsage": "",
 		"EngineeringChangeDocForEdit": "",
@@ -50,19 +50,19 @@
 			"BillOfMaterialItemNodeNumber": "",
 			"HeaderChangeDocument": "",
 			"Material": "",
-			"Plant": "1010",
+			"Plant": "0001",
 			"ValidityStartDate": "",
 			"ValidityEndDate": "",
-			"BillOfMaterialComponent": "RM13",
+			"BillOfMaterialComponent": "72",
 			"ComponentDescription": "",
 			"BillOfMaterialItemQuantity": "",
 			"ComponentScrapInPercent": "",
 			"IsDeleted": null
 		}
 	},
-	"api_schema": "sap.s4.beh.billofmaterial.v1.BillOfMaterial.Created.v1",
+	"api_schema": "SAPBillOfMaterialReads",
 	"accepter": ["Component"],
 	"material_code": "",
-	"plant": "1010",
+	"plant": "0001",
 	"deleted": false
 }

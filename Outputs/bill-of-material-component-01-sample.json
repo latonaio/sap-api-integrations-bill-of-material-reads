@@ -1,0 +1,25 @@
+{
+	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-bill-of-material-reads/SAP_API_Caller/caller.go#L181",
+	"function": "sap-api-integrations-bill-of-material-reads/SAP_API_Caller.(*SAPAPICaller).Component",
+	"level": "INFO",
+	"message": [
+		{
+			"BillOfMaterial": "00000001",
+			"BillOfMaterialVariant": "1",
+			"BillOfMaterialCategory": "M",
+			"BillOfMaterialVersion": "",
+			"BillOfMaterialItemNodeNumber": "1",
+			"HeaderChangeDocument": "",
+			"Material": "21",
+			"Plant": "0001",
+			"ValidityStartDate": "2022-09-20",
+			"ValidityEndDate": "9999-12-31",
+			"BillOfMaterialComponent": "72",
+			"ComponentDescription": "請求",
+			"BillOfMaterialItemQuantity": "3",
+			"ComponentScrapInPercent": "0.00",
+			"IsDeleted": false
+		}
+	],
+	"time": "2022-09-22T09:42:42+09:00"
+}

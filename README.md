@@ -49,10 +49,10 @@ accepter において 下記の例のように、データの種別（＝APIの�
 ここでは、"Header" が指定されています。
 
 ```
-	"api_schema": "sap.s4.beh.billofmaterial.v1.BillOfMaterial.Created.v1",
+	"api_schema": "SAPBillOfMaterialReads",
 	"accepter": ["Header"],
-	"material_code": "SG23",
-	"plant": "1010",
+	"material_code": "21",
+	"plant": "0001",
 	"deleted": false
 ```
   
@@ -61,10 +61,10 @@ accepter において 下記の例のように、データの種別（＝APIの�
 全データを取得する場合、sample.json は以下のように記載します。  
 
 ```
-	"api_schema": "sap.s4.beh.billofmaterial.v1.BillOfMaterial.Created.v1",
+	"api_schema": "SAPBillOfMaterialReads",
 	"accepter": ["All"],
-	"material_code": "SG23",
-	"plant": "1010",
+	"material_code": "21",
+	"plant": "0001",
 	"deleted": false
 ```
 
@@ -112,17 +112,64 @@ func (c *SAPAPICaller) AsyncGetBillOfMaterial(material, plant, productDescriptio
 	wg.Wait()
 }
 ```
+
 ## Output  
-本マイクロサービスでは、[golang-logging-library](https://github.com/latonaio/golang-logging-library) により、以下のようなデータがJSON形式で出力されます。  
+本マイクロサービスでは、[golang-logging-library-for-sap](https://github.com/latonaio/golang-logging-library-for-sap) により、以下のようなデータがJSON形式で出力されます。  
 以下の sample.json の例は、SAP 部品表 の ヘッダデータ が取得された結果の JSON の例です。  
-以下の項目のうち、"BillOfMaterial" ～ "to_BillOfMaterialItem" は、/SAP_API_Output_Formatter/type.go 内 の Type Header {} による出力結果です。"cursor" ～ "time"は、golang-logging-library による 定型フォーマットの出力結果です。  
+以下の項目のうち、"BillOfMaterial" ～ "to_BillOfMaterialItem" は、/SAP_API_Output_Formatter/type.go 内 の Type Header {} による出力結果です。"cursor" ～ "time"は、golang-logging-library-for-sap による 定型フォーマットの出力結果です。  
 
 ```
 {
-	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-bill-of-material-reads/SAP_API_Caller/caller.go#L50",
+	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-bill-of-material-reads/SAP_API_Caller/caller.go#L75",
 	"function": "sap-api-integrations-bill-of-material-reads/SAP_API_Caller.(*SAPAPICaller).Header",
 	"level": "INFO",
-	"message": "[{XXXXXXXXXXXXXXXXXXXXXXXXXXXXX}]",
-	"time": "2021-12-11T15:33:00.054455+09:00"
+	"message": [
+		{
+			"BillOfMaterial": "00000001",
+			"BillOfMaterialCategory": "M",
+			"BillOfMaterialVariant": "1",
+			"BillOfMaterialVersion": "",
+			"EngineeringChangeDocument": "",
+			"Material": "21",
+			"Plant": "0001",
+			"BillOfMaterialHeaderUUID": "02b8a059-4517-1eed-8e98-fd40f0b2814e",
+			"BillOfMaterialVariantUsage": "1",
+			"EngineeringChangeDocForEdit": "",
+			"IsMultipleBOMAlt": false,
+			"BOMHeaderInternalChangeCount": "1",
+			"BOMUsagePriority": "",
+			"BillOfMaterialAuthsnGrp": "",
+			"BOMVersionStatus": "",
+			"IsVersionBillOfMaterial": false,
+			"IsLatestBOMVersion": false,
+			"IsConfiguredMaterial": false,
+			"BOMTechnicalType": "",
+			"BOMGroup": "",
+			"BOMHeaderText": "",
+			"BOMAlternativeText": "",
+			"BillOfMaterialStatus": "1",
+			"HeaderValidityStartDate": "2022-09-20",
+			"HeaderValidityEndDate": "9999-12-31",
+			"ChgToEngineeringChgDocument": "",
+			"IsMarkedForDeletion": false,
+			"IsALE": false,
+			"MatFromLotSizeQuantity": "",
+			"MaterialToLotSizeQuantity": "",
+			"BOMHeaderBaseUnit": "PC",
+			"BOMHeaderQuantityInBaseUnit": "1",
+			"RecordCreationDate": "2022-09-20",
+			"LastChangeDate": "",
+			"BOMIsToBeDeleted": "",
+			"DocumentIsCreatedByCAD": false,
+			"LaboratoryOrDesignOffice": "",
+			"LastChangeDateTime": "2022-09-20T21:00:00+09:00",
+			"ProductDescription": "請求",
+			"PlantName": "Werk 0001",
+			"BillOfMaterialHdrDetailsText": "",
+			"SelectedBillOfMaterialVersion": "",
+			"to_BillOfMaterialItem": "http://100.21.57.120:8080/sap/opu/odata/sap/API_BILL_OF_MATERIAL_SRV;v=0002/MaterialBOM(BillOfMaterial='00000001',BillOfMaterialCategory='M',BillOfMaterialVariant='1',BillOfMaterialVersion='',EngineeringChangeDocument='',Material='21',Plant='0001')/to_BillOfMaterialItem"
+		}
+	],
+	"time": "2022-09-20T19:53:56+09:00"
 }
 ```
